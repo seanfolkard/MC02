@@ -8,7 +8,7 @@ const userSchema = new Schema({
     birthday: Date,
     gender: {
         type: String,
-        enum: ['male', 'female', 'pns'],
+        enum: ['male', 'female', 'null'],
         default: 'pns'
     },
     password: String

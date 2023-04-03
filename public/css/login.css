@@ -58,3 +58,8 @@ input[type = email], input[type = password], select {
     white-space: nowrap;
     appearance: none;
 }
+
+.error {
+    float: left;
+    color: crimson;
+}

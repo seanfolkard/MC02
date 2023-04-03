@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
             lastname: formData.get("lastname"),
             email: formData.get("email"),
             contact: formData.get("contact"),
-            dob: formData.get("dob"),
+            birthday: formData.get("dob"),
             gender: formData.get("gender"),
         };
         console.log("Received: " + userInfo);

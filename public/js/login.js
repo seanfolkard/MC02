@@ -10,21 +10,31 @@ document.addEventListener("DOMContentLoaded", (e) => {
             email: formData.get("email"),
             password: formData.get("pword")
         };
-        console.log(`/api/auth?email=${userInfo.email}&password=${userInfo.password}`);
         fetch(`/api/auth?email=${userInfo.email}&password=${userInfo.password}`)
             .then(response => response.json())
             .then(data => {
-                console.log("Received: " + userInfo);
+                const error = document.querySelector('#login > p.error');
+                console.log("Received: " + data);
                 if (data) {
-                    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+                    error.innerHTML = "";
+                    data['dob'] = data['birthday'];
+                    data['contact'] = data['number'];
+                    delete data.password;
+                    delete data.number;
+                    delete data.birthday;
+                    delete data.__v;
+                    delete data._id;
+                    delete data.gender;
+                    data['dob'] = data['dob'].split('T')[0];
+                    localStorage.setItem("userInfo", JSON.stringify(data));
+                    console.log(JSON.stringify(data));
                     fadeOut(document.querySelector(".login"));
 
                     setTimeout(() => {
                         window.location.replace("/home");
                     }, 1000);
                 } else {
-                    // TODO: Error: no user/incorrect password
-                    console.log('INVALID');
+                    error.innerHTML = "Invalid credentials";
                 }
             });
     });
