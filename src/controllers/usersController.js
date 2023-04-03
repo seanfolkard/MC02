@@ -29,6 +29,10 @@ const usersController = {
     /**
      * TODO: Past Registrations
      */
+
+    /**
+     * TODO: Update User
+     */
 }
 
 export default usersController;
