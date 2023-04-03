@@ -37,6 +37,12 @@ navRoutes.get('/about', function (req, res) {
     });
 });
 
+navRoutes.get('/login', function(req, res) {
+    res.render('login', {
+        title: 'Login'
+    });
+});
+
 navRoutes.get('/signup', function (req, res) {
     res.render('newacct', {
         title: 'Sign Up',

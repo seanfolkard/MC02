@@ -32,7 +32,7 @@ logout.addEventListener("click", (e) => {
 
 document.addEventListener("DOMContentLoaded", (e) => {
     if (localStorage.getItem("userInfo") == null) {
-        window.location.replace("login.html");
+        window.location.replace("login");
     } else {
         let userData = JSON.parse(localStorage.getItem("userInfo"));
         for (var key in userData) {

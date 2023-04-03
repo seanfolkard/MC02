@@ -10,12 +10,23 @@ document.addEventListener("DOMContentLoaded", (e) => {
             email: formData.get("email"),
             password: formData.get("pword")
         };
-        console.log("Received: " + userInfo);
-        localStorage.setItem("userInfo", JSON.stringify(userInfo));
-        fadeOut(document.querySelector(".login"));
-        setTimeout(() => {
-            window.location.replace("/home");
-        }, 1000);
+        console.log(`/api/auth?email=${userInfo.email}&password=${userInfo.password}`);
+        fetch(`/api/auth?email=${userInfo.email}&password=${userInfo.password}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log("Received: " + userInfo);
+                if (data) {
+                    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+                    fadeOut(document.querySelector(".login"));
+
+                    setTimeout(() => {
+                        window.location.replace("/home");
+                    }, 1000);
+                } else {
+                    // TODO: Error: no user/incorrect password
+                    console.log('INVALID');
+                }
+            });
     });
 });
 
