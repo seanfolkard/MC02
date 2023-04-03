@@ -7,7 +7,7 @@ navRoutes.get('/', (req, res) => {
 });
 
 navRoutes.get('/home', function (req, res) {
- 
+
     // Rendering home.ejs page
     res.render("index", {
         title: "Home Page"
@@ -15,7 +15,7 @@ navRoutes.get('/home', function (req, res) {
 });
 
 navRoutes.get('/list', function (req, res) {
- 
+
     // Rendering home.ejs page
     res.render("list", {
         title: "Listings"
@@ -23,7 +23,7 @@ navRoutes.get('/list', function (req, res) {
 });
 
 navRoutes.get('/register', function (req, res) {
- 
+
     // Rendering home.ejs page
     res.render("register", {
         title: "Register"
@@ -31,7 +31,7 @@ navRoutes.get('/register', function (req, res) {
 });
 
 navRoutes.get('/profile', function (req, res) {
- 
+
     // Rendering home.ejs page
     res.render("profile", {
         title: "Profile"
@@ -39,10 +39,23 @@ navRoutes.get('/profile', function (req, res) {
 });
 
 navRoutes.get('/about', function (req, res) {
- 
+
     // Rendering home.ejs page
     res.render("index", {
         title: "About"
+    });
+});
+
+navRoutes.get('/signup', function (req, res) {
+    res.render('newacct', {
+        title: 'Sign Up',
+        stylesheet: [
+            "css/style.css",
+            "css/newacct.css"
+        ],
+        javascript: [
+            "js/newacct.js"
+        ]
     });
 });
 
