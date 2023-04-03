@@ -48,13 +48,6 @@
     float: left;
 }
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to right,#36c892, #223f85);
-    margin: 0;
-    padding: 0;
-}
-
 .venue-list {
     list-style-type: none;
     padding: 0;
@@ -206,7 +199,7 @@ body {
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #36c892;
     color: white;
 }
 
