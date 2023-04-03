@@ -4,7 +4,7 @@ import usersController from '../controllers/usersController.js'
 const navRoutes = express.Router();
 
 navRoutes.get('/', (req, res) => {
-    res.redirect('/home');
+    res.redirect('/login');
 });
 
 navRoutes.get('/home', function (req, res) {
@@ -40,6 +40,12 @@ navRoutes.get('/about', function (req, res) {
 navRoutes.get('/login', function(req, res) {
     res.render('login', {
         title: 'Login'
+    });
+});
+
+navRoutes.get('/forgotpass', function(req, res) {
+    res.render('forgotpass', {
+        title: 'Forgot Password'
     });
 });
 
