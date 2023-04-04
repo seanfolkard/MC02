@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
                     delete data.number;
                     delete data.birthday;
                     delete data.__v;
-                    delete data._id;
+                    // delete data._id;
                     delete data.gender;
                     data['dob'] = data['dob'].split('T')[0];
                     localStorage.setItem("userInfo", JSON.stringify(data));

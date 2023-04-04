@@ -40,7 +40,13 @@ const venuesController = {
 
     fillUp: function(req, res) {
         Venue.findOne({_id: req.query._id}).lean().exec()
-            // .then(result => )
+            .then(result => {
+                if (result == null) {
+                    res.render('register', {
+                        title: 'Register'
+                    })
+                }
+            });
     }
 };
 

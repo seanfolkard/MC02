@@ -39,6 +39,16 @@ document.addEventListener('DOMContentLoaded', (e) => {
              }
             }
         }
+
+        var booknowbtn = document.querySelectorAll("button.venue-button");
+        const uid = JSON.parse(localStorage.getItem("userInfo"))['_id'];
+        for (let index = 0; index < booknowbtn.length; index++) {
+            const element = booknowbtn[index];
+            const id = element.getAttribute('venue');
+            element.onclick = function(e) {
+                window.location.href = `/api/fillvenue?venue=${id}&user=${uid}`;
+            }
+        }
     })
 
 });

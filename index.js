@@ -27,6 +27,9 @@ async function startServer(){
     // Set view cache to false so browsers wouldn't save views into their cache
     app.set("view cache", false);
 
+
+    app.use(express.json());
+
     // Assign routes.
     // Routers are objects which contain a compilation of route handlers. See link for more details: https://expressjs.com/en/4x/api.html#router
     app.use(navRoutes);

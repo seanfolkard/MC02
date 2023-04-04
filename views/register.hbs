@@ -3,14 +3,36 @@
 <link rel="stylesheet" href="/css/venue-registration.css">
 <script src="/js/venue-registration.js"></script>
 
+
 <div class="outer">
-    <h1 id="venue-title">  </h1>
+    <h1 id="venue-title">{{vtitle}}</h1>
     <div class="confirm-information container">
         <span id="inner-header"> Confirm your information below: </span>
         <hr>
-        <form class="form" id="confirm-venue-register" method="post">
-            <div id="js-fill"></div>
-            <input type="submit" value="Confirm Registration">
+        <form class="form" id="confirm-venue-register">
+            <div id="js-fill">
+
+            <label for="firstname"> First Name </label>
+            <input type="text" name="firstname" value={{firstname}} required="">
+            <label for="lastname"> Last Name </label>
+            <input type="text" name="lastname" value={{lastname}} required="">
+            <br>
+            <label for="dor"> Date &amp; Time of Registration </label>
+            <input type="datetime-local" name="dor" value="" required="">
+            <br>
+            <label for="nop"> Number of People </label>
+            <input type="number" name="nop" value="" required="">
+            <br>
+            <label for="email"> Email Address </label>
+            <input type="email" name="email" value={{email}} required="">
+            <br><label for="contact"> Contact Number </label>
+            <input type="tel" name="contact" value={{number}} required="">
+            <br>
+            <label for="dob"> Date of Birth </label>
+            <input type="date" name="dob" value={{dob}} required="">
+            <br>
+            </div>
+            <input id="submit" type="submit" value="Confirm Registration" venue={{venue}}>
         </form>
     </div>
 </div>

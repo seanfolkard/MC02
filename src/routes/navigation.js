@@ -1,6 +1,7 @@
 import express from 'express';
 import usersController from '../controllers/usersController.js'
 import venuesController from '../controllers/venuesController.js';
+import registerController from '../controllers/registerController.js';
 
 const navRoutes = express.Router();
 
@@ -65,5 +66,7 @@ navRoutes.get('/signup', function (req, res) {
 
 navRoutes.get('/api/auth', usersController.authenticateUser);
 navRoutes.get('/api/venues', venuesController.getAll);
+navRoutes.get('/api/fillvenue', registerController.fillvenue);
+navRoutes.post('/api/postreg', registerController.postRegister);
 
 export default navRoutes;

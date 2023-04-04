@@ -7,7 +7,13 @@ const registerSchema = new Schema({
     numpeople: Number,
     email: String,
     number: Number,
-    birthday: Date
+    birthday: Date,
+    uid: String,
+    vid: String,
+    approved: {
+        type: Boolean,
+        default: false
+    }
 });
 
 const Register = model('register', registerSchema);
