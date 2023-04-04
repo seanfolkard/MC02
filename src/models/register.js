@@ -3,8 +3,8 @@ import { Schema, model, SchemaTypes} from "mongoose";
 const registerSchema = new Schema({
     firstname: String,
     lastname: String,
-    dor: Date,
-    nop: Number,
+    dateofregis: Date,
+    numpeople: Number,
     email: String,
     number: Number,
     birthday: Date
