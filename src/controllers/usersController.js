@@ -31,19 +31,17 @@ const usersController = {
 
     /**
      * Creates new user in database
-     * TODO: validation
      */
     postUser: function(req, res) {
         User.create(req.body);
-    }
-
-    /**
-     * TODO: Past Registrations
-     */
+    },
 
     /**
      * TODO: Update User
      */
+    updateUser: function(req, res) {
+        User.updateOne({email:req.body.email}, req.body).lean().exec();
+    }
 }
 
 export default usersController;

@@ -71,5 +71,6 @@ navRoutes.post('/api/postreg', registerController.postRegister);
 navRoutes.get('/api/checkemail', usersController.checkEmail);
 navRoutes.post('/api/newuser', usersController.postUser);
 navRoutes.get('/api/getreg', registerController.getRegister);
+navRoutes.post('/api/updateuser', usersController.updateUser);
 
 export default navRoutes;

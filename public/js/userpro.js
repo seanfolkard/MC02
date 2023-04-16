@@ -8,6 +8,9 @@ savebutton.addEventListener('click',function(){
         inputs[i].toggleAttribute('readonly');
     };
 
+    document.querySelector('#country').toggleAttribute('readonly');
+    document.querySelector('#email').toggleAttribute('readonly');
+
     if (savebutton.innerHTML == "edit") {
         savebutton.innerHTML = "save";
     } else {
@@ -21,7 +24,17 @@ savebutton.addEventListener('click',function(){
             userInfo[pair[0]] = pair[1];
         }
         localStorage.setItem("userInfo", JSON.stringify(userInfo));
-
+        userInfo['birthday'] = userInfo['dob'];
+        userInfo['number'] = userInfo['contact'];
+        delete userInfo['dob'];
+        delete userInfo['contact'];
+        fetch('/api/updateuser', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userInfo)
+        })
     }
 });
 
