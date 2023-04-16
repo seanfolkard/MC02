@@ -68,5 +68,7 @@ navRoutes.get('/api/auth', usersController.authenticateUser);
 navRoutes.get('/api/venues', venuesController.getAll);
 navRoutes.get('/api/fillvenue', registerController.fillvenue);
 navRoutes.post('/api/postreg', registerController.postRegister);
+navRoutes.get('/api/checkemail', usersController.checkEmail);
+navRoutes.post('/api/newuser', usersController.postUser);
 
 export default navRoutes;

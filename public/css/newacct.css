@@ -21,7 +21,7 @@ input[type = text], input[type = email], input[type = date], input[type = tel], 
     line-height: 20px;
 }
 
-input[type = text], select {
+input[type = text], input[type = password], select {
     width: 25%;
     padding: 5px 12px;
     margin: 4px 0 16px;

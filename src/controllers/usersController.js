@@ -18,6 +18,17 @@ const usersController = {
         });
     },
 
+    checkEmail: function(req, res) {
+        const email = req.query.email;
+        User.findOne({email:email}).lean().exec().then(result => {
+            if (result == null) {
+                res.json('');
+            } else {
+                res.json(result);
+            }
+        });
+    },
+
     /**
      * Creates new user in database
      * TODO: validation
