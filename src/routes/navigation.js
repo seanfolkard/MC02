@@ -70,5 +70,6 @@ navRoutes.get('/api/fillvenue', registerController.fillvenue);
 navRoutes.post('/api/postreg', registerController.postRegister);
 navRoutes.get('/api/checkemail', usersController.checkEmail);
 navRoutes.post('/api/newuser', usersController.postUser);
+navRoutes.get('/api/getreg', registerController.getRegister);
 
 export default navRoutes;

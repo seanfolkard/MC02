@@ -31,15 +31,27 @@ logout.addEventListener("click", (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", (e) => {
+    let userData = JSON.parse(localStorage.getItem("userInfo"));
     if (localStorage.getItem("userInfo") == null) {
         window.location.replace("/login");
     } else {
-        // let userData = JSON.parse(localStorage.getItem("userInfo"));
-        // console.log(userData);
-        // for (var key in userData) {
-        //     console.log(key + ": " + userData[key]);
-        //     if (userData[key] != "")
-        //         document.querySelector("#" + key)?.setAttribute("value", userData[key]);
-        // }
+        console.log(userData);
+        for (var key in userData) {
+            console.log(key + ": " + userData[key]);
+            if (userData[key] != "")
+                document.querySelector("#" + key)?.setAttribute("value", userData[key]);
+        }
     }
+    fetch(`/api/getreg?email=${userData.email}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data) {
+                const fill = document.querySelector('#pastreg');
+                data.forEach(element => {
+                    fill.innerHTML += `<li class="hist">${element.dateofregis} - ${element.title}</li><br>`;
+                });
+            } else {
+
+            }
+        });
 });

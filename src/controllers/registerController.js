@@ -28,6 +28,22 @@ const registerController = {
                 }
             );
         })
+    },
+    getRegister: function (req, res) {
+        Register.find({email:req.query.email}).lean().exec()
+            .then(async result => {
+                if (result == null) {
+                    res.send('')
+                } else {
+                    for (let index = 0; index < result.length; index++) {
+                        const element = result[index];
+                        element.dateofregis = element.dateofregis.toISOString().split('T')[0];
+                        let venue = await Venue.findOne({_id:element.vid}).lean().exec();
+                        element.title = venue.title
+                    }
+                    res.send(result);
+                }
+            })
     }
 }
 
