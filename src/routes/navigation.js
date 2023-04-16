@@ -58,6 +58,12 @@ navRoutes.get('/signup', function (req, res) {
     });
 });
 
+navRoutes.get('/register', function (req, res) {
+    res.render("register", {
+        title: "Register"
+    });
+});
+
 navRoutes.get('/api/auth', usersController.authenticateUser);
 navRoutes.get('/api/venues', venuesController.getAll);
 navRoutes.get('/api/fillvenue', registerController.fillvenue);
