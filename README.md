@@ -1,6 +1,6 @@
 # Sportslink
 
-This web application enables people to find a venue to play the sport of that they desire. It requires the user to register and login before they are able to check the venues available and register.
+This web application enables people to find a venue to play the sport of that they desire. It requires the user to register and login before they are able to check the venues available and register for a schedule.
 
 # Set Up
 1. Open the code in VSC
