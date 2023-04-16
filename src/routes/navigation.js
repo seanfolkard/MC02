@@ -21,21 +21,15 @@ navRoutes.get('/list', function (req, res) {
     });
 });
 
-navRoutes.get('/register', function (req, res) {
-    res.render("register", {
-        title: "Register"
+navRoutes.get('/about', function (req, res) {
+    res.render("about", {
+        title: "About"
     });
 });
 
 navRoutes.get('/profile', function (req, res) {
     res.render("profile", {
         title: "Profile"
-    });
-});
-
-navRoutes.get('/about', function (req, res) {
-    res.render("index", {
-        title: "About"
     });
 });
 
