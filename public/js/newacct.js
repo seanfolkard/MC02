@@ -71,6 +71,26 @@ document.addEventListener("DOMContentLoaded", (e) => {
             };
             fetch('/api/newuser', requestOptions);
 
+            setTimeout(() => {
+                fetch(`/api/auth?email=${userInfo.email}&password=${formData.get("password")}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Received: " + data);
+                    data['dob'] = data['birthday'];
+                    data['contact'] = data['number'];
+                    delete data.number;
+                    delete data.birthday;
+                    data['dob'] = data['dob'].split('T')[0];
+                    localStorage.setItem("userInfo", JSON.stringify(data));
+                    console.log(JSON.stringify(data));
+                    fadeOut(document.querySelector(".login"));
+
+                    setTimeout(() => {
+                        window.location.replace("/home");
+                    }, 1000);
+                })
+            }, 500);
+
             fadeOut(document.querySelector(".new-account"));
             setTimeout(() => {
                 window.location.replace("home");

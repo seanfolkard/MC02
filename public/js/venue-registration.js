@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
         console.log(requestOptions);
 
-        fetch('/api/postreg', requestOptions).catch(err => console.error(err));
+        fetch('/api/postreg', requestOptions).catch(err => console.log(err));
 
     });
 });
