@@ -18,22 +18,20 @@ savebutton.addEventListener('click',function(){
         let userData = JSON.parse(localStorage.getItem("userInfo"));
         const form = document.querySelector("#user-profile");
         let formData = new FormData(form);
-        localStorage.removeItem("userInfo");
-        let userInfo = {};
         for (var pair of formData) {
-            userInfo[pair[0]] = pair[1];
+            userData[pair[0]] = pair[1];
         }
-        localStorage.setItem("userInfo", JSON.stringify(userInfo));
-        userInfo['birthday'] = userInfo['dob'];
-        userInfo['number'] = userInfo['contact'];
-        delete userInfo['dob'];
-        delete userInfo['contact'];
+        localStorage.setItem("userInfo", JSON.stringify(userData));
+        userData['birthday'] = userData['dob'];
+        userData['number'] = userData['contact'];
+        delete userData['dob'];
+        delete userData['contact'];
         fetch('/api/updateuser', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(userInfo)
+            body: JSON.stringify(userData)
         })
     }
 });
@@ -48,9 +46,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     if (localStorage.getItem("userInfo") == null) {
         window.location.replace("/login");
     } else {
-        console.log(userData);
         for (var key in userData) {
-            console.log(key + ": " + userData[key]);
             if (userData[key] != "")
                 document.querySelector("#" + key)?.setAttribute("value", userData[key]);
         }
