@@ -15,7 +15,7 @@ async function startServer(){
 
     const app = express();
     // Set static folder
-    app.use(express.static(__dirname + "/public"));
+    app.use('/static', express.static(__dirname + "/public"));
     // Set handlebars as the app's view engine.
     app.engine("hbs", exphbs.engine({
         extname: 'hbs'
